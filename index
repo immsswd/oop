@@ -1,0 +1,18 @@
+<?php
+try {
+	require_once 'pdo-connect.php';
+	$sql = "SELECT * FROM mahasiswa";
+} catch (Exception $e) {
+	echo $error = $e->getMessage();
+}
+
+foreach ($db->query($sql) as $row) {
+	echo '<pre>';
+	
+	echo '</pre><br>';
+	echo '<table border="1" cellpadding="20"><tr><td>';
+	echo $row['nama']. ' [Jenis Kelamin: ';
+	echo $row['jk'].']';
+	echo '</td></tr></table>';
+
+}
